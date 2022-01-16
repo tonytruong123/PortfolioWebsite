@@ -1,0 +1,1103 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital@0;1&family=Merriweather:ital,wght@0,300;0,400;1,300;1,400&family=Playfair+Display:wght@400;500;700;800;900&display=swap');
+
+/* The flex property sets the flexible length on flexible items */
+/* The CSS flex-wrap property is used to specify whether flex items are forced into a single line or wrapped onto multiple lines */
+
+/* Variables */
+:root{
+    --main-color: #f2e6d8;
+    --blue: #f88195 ;
+    --blue-dark: #2a363b;
+    --orange: #f5b481;
+    --green-yellow: #Abe6ce;
+    --pink-light: #0d101c;
+    --cyan-light: #aba7a7;
+    --change-color: #6a453b;
+    --white: rgb(248,248,255);
+    --white-alpha-40: rgba(255, 255, 255, 0.4);
+    --white-alpha-25: rgba(255, 255, 255, 0.25);
+    --backdrop-filter-blur: blur(5px);
+}
+
+/* :root.active{
+    --main-color: #807978;
+    --blue: #6c5b7b ;
+    --blue-dark: #355c7d;
+    --orange: #f88195;
+    --green-yellow: #Abe6ce;
+    --pink-light: #4A6274;
+    --cyan-light: #aba7a7;
+    --white: white;
+    --change-color: #56554;
+    --white-alpha-40: rgba(255, 255, 255, 0.4);
+    --white-alpha-25: rgba(255, 255, 255, 0.25);
+    --backdrop-filter-blur: blur(5px);
+} */
+
+/* :root.active{
+    --main-color: #ff847c;
+    --blue: #6c5b7b ;
+    --blue-dark: #826054;
+    --orange: #f88195;
+    --green-yellow: #Abe6ce;
+    --pink-light: #fbbdba;
+    --cyan-light: #eee3ec;
+    --white: white;
+    --white-alpha-40: rgba(255, 255, 255, 0.4);
+    --white-alpha-25: rgba(255, 255, 255, 0.25);
+    --backdrop-filter-blur: blur(5px);
+} */
+
+/* Global settings */
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    outline: none;
+}
+
+::before,
+::after{
+    box-sizing: border-box;
+}
+
+/* to make the cool transparent box */
+body{
+    min-height: 100vh;
+    background-image: linear-gradient(to bottom right, var(--pink-light), var(--cyan-light));
+    background-attachment: fixed;
+    font-size: 16px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 300;
+    color: var(--blue-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+    padding: 35px 15px; 
+}
+
+body.hide-scrolling{
+    overflow-y: hidden;
+}
+
+/* Font weight is the “value” placed on your font that will determine how bold or light your text will appear. */
+body::before{
+    content: '';
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--green-yellow);
+    z-index: -1;
+    opacity: 0.12;
+}
+
+a{
+    text-decoration: none;
+}
+
+h1,h2{
+    font-weight: 600;
+}
+
+h3,h4,h5,h6{
+    font-weight: 500;
+}
+
+img{
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+/* if you don't want the default bullet point */
+ul{
+    list-style: none;
+}
+
+section{
+    background-color: var(--white-alpha-25);
+    border: 1px solid var(--white-alpha-40);
+    min-height: calc(100vh - 70px);
+    border-radius: 30px;
+    backdrop-filter: var(--backdrop-filter-blur);
+    display:none;
+}
+
+section.active{
+    display: block;
+    animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+section.fade-out{
+    animation: fadeOut 0.5s ease-in-out forwards;
+}
+
+.main{
+    max-width: 1200px;
+    margin: auto;
+    transition: all 0.5s ease-in-out;
+    position: relative;
+}
+
+/* make the screen fade out */
+.main.fade-out{
+    opacity: 0;
+}
+
+.container{
+    padding: 0 40px;
+    width: 100%;
+}
+
+.row{
+    display:flex;
+    flex-wrap:wrap;
+}
+
+.align-items-center{
+    align-items: center;
+}
+
+.hidden{
+    display: none !important;
+}
+
+.sec-padding{
+    padding: 80px 0;
+}
+
+/* make the button on the edge of the page to the right */
+.flex-end{
+    justify-content: flex-end;
+}
+
+/* Section Title */
+.section-title{
+    padding:0 15px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title h2{
+    font-size:40px;
+    text-transform: capitalize;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar{
+    width: 5px;
+}
+
+::-webkit-scrollbar-track{
+    background-color: #616e7c;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #f5f7fa;
+    border-radius: 3px;
+}
+
+/* html::-webkit-scrollbar-track.active{
+    background-color: #d8cbc4;
+}
+
+html::-webkit-scrollbar-thumb.active{
+    background-color: #a08679;
+    border-radius: 10px;
+} */
+
+/* Button */
+
+/* the value of the property is set to the value of the same property of the parent element. */
+/* cursor: pointer is to make something become a clickable thing */
+
+button{
+    font-family: inherit;
+    user-select: none;
+}
+
+.btn{
+    line-height: 1.5;
+    background-color: var(--white-alpha-25);
+    border: 1px solid var(--white-alpha-40);
+    padding: 10px 28px;
+    display: inline-block;
+    border-radius: 20px;
+    color: var(--main-color);
+    font-weight: 700;
+    text-transform: capitalize;
+    font-family: inherit;
+    font-size: 19px;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+    vertical-align: middle;
+    transition: color 0.3s ease;
+}
+
+.btn::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0%;
+    background-color: var(--main-color);
+    z-index: -1;
+    transition: width 0.3s ease;
+}
+
+/* hover is when you click the button, there will be a slide */
+.btn:hover::before{
+    width: 100%;
+}
+
+.btn:hover{
+    color: var(--white);
+}
+
+/* Animation Keyframs */
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+@keyframes zoomInOut{
+    0%,100%{
+        transform:scale(0.5);
+    }
+    50%{
+        transform: scale(1);
+    }
+}
+
+@keyframes bounceTop{
+    0%,100%{
+        transform: translateY(-40px);
+    }
+    50%{
+        transform: translateY(0px);
+    }
+}
+
+/* when we login, there will be an effect before the content pop up */
+@keyframes spin{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+
+/* Background Circles */
+.bg-circles{
+    position: fixed;
+    top: 0;
+    height: 100%;
+    max-width: 1200px;
+    width: calc(100% - 30px);
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+
+/* call the property for the whole thing  */
+.bg-circles div{
+    position: absolute;
+    border-radius: 50%;
+}
+
+/* the effect for the circle */
+.bg-circles .circle-1{
+    height: 60px;
+    width: 60px;
+    background-color: var(--blue);
+    left: 5%;
+    top: 10%;
+    opacity: 0.3;
+    animation: zoomInOut 5s linear infinite;
+}
+
+.bg-circles .circle-2{
+    height: 90px;
+    width: 80px;
+    background-color: var(--change-color);
+    left: 30%;
+    top: 60%;
+    opacity: 0.4;
+    animation: bounceTop 8s ease-in-out infinite;
+}
+
+.bg-circles .circle-3{
+    height: 120px;
+    width: 120px;
+    background-color: var(--white);
+    top: 40%;
+    right: -58px;
+    opacity: 0.4;
+    animation: zoomInOut 5s linear infinite;
+}
+
+.bg-circles .circle-4{
+    height: 50px;
+    width: 45px;
+    background-color: var(--orange);
+    top: 69%;
+    left: -30px;
+    opacity: 0.6;
+
+}
+
+/* Overlay */
+/* prevent the user from keep clicking on the screen */
+.overlay{
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+    z-index: 200;
+    visibility: hidden;
+}
+
+.overlay.active{
+    visibility: visible;
+}
+
+/* Page Loader */
+.page-loader{
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 999;
+    background-color: var(--white-alpha-25);
+    backdrop-filter: var(--backdrop-filter-blur);
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.6s ease;
+}
+
+.page-loader.fade-out{
+    opacity: 0;
+}
+
+/* combine all of the small box into one the bigger is outside of the small one */
+/* border-top-color: transparent !important; make the top of the shape disappear */
+.page-loader div{
+    border: 2px solid transparent;
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.6;
+    border-top-color: transparent !important;
+    border-bottom-color: transparent !important;
+    animation: spin 1s linear infinite;
+}
+
+.page-loader div:nth-child(1){
+    height: 60px;
+    width: 60px;
+    border-color: var(--main-color);
+}
+
+.page-loader div:nth-child(2){
+    height:45px;
+    width: 45px;
+    border-color: var(--blue);
+    animation-duration: 2s;
+    animation-duration: 2s;
+}
+
+.page-loader div:nth-child(3){
+    height:30px;
+    width: 30px;
+    border-color: var(--orange);
+}
+
+/* Header */
+.header{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    padding: 20px 0 0;
+}
+
+.header.active{
+    position: fixed;
+    top: 35px;
+    padding: 20px 15px;
+}
+
+.header.active .container{
+    max-width: 1200px;
+    margin: auto;
+}
+
+.header .nav-toggler{
+    width: 50px;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: var(--white-alpha-25);
+    border: 1px solid var(--white-alpha-40);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 15px;
+    z-index: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.header .nav-toggler.hide{
+    opacity: 0;
+    transition: none;
+}
+/* create the middle line first */
+.header .nav-toggler span{
+    height: 2px;
+    width: 24px;
+    background-color: var(--main-color);
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.header.active .nav-toggler span{
+    background-color:transparent;
+}
+
+.header .nav-toggler span::before,
+.header .nav-toggler span::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--main-color);
+    transition: all 0.3s ease;
+}
+
+/* create the top of the 3 line */
+.header .nav-toggler span::before{
+    left: 0;
+    transform: translateY(-8px);
+}
+
+/* for the lil circle that pop up the home and contact when we click on it */
+.header.active .nav-toggler span::before{
+    transform: rotate(45deg);
+}
+
+/* create the last of the 3 line */
+.header .nav-toggler span::after{
+    right: 0;
+    transform: translateY(8px);
+}
+
+/* for the lil circle that pop up the home and contact when we click on it */
+.header.active .nav-toggler span::after{
+    transform: rotate(-45deg);
+}
+
+/* add the animation for the header to slide*/
+.header:not(.active) .nav-toggler:hover span::before,
+.header:not(.active) .nav-toggler:hover span::after{
+    width: 50%;
+}
+
+.header .nav{
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    padding: 35px 15px;
+    overflow-y: auto;
+    visibility: hidden;
+}
+
+.header.active .nav{
+    visibility: visible;
+}
+
+.header .nav-inner{
+    min-height: calc(100vh - 70px);
+    max-width: 1200px;
+    margin: auto;
+    background-color: var(--white-alpha-25);
+    border: 1px solid var(--white-alpha-40);
+    backdrop-filter: var(--backdrop-filter-blur);
+    padding: 50px 0;
+    border-radius: 30px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.header.active .nav-inner{
+    opacity: 1;
+}
+
+.header .nav-inner ul li{
+    text-align: center;
+}
+
+.header .nav-inner ul li a{
+    font-size: 40px;
+    text-transform: capitalize;
+    color: var(--blue-dark);
+    display: block;
+    font-weight: 500;
+    padding: 8px 15px;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.header .nav-inner ul li a::before{
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 50%;
+    width: 0%;
+    background-color: var(--white-alpha-25);
+    z-index: -1;
+    transition: width 0.5s ease;
+}
+
+.header .nav-inner ul li a:hover::before{
+    width: 100%;
+}
+
+.header .nav-inner ul li a:hover{
+    color: var(--main-color);
+}
+
+/* Home Section */
+
+.home-section{
+
+    padding: 120px 0;
+}
+
+.home-section.active{
+    display: flex;
+}
+
+.home-text,
+.home-img{
+    width: 50%;
+    padding: 15px;
+}
+
+/* now we gonna change the word "Hello I'm" */
+.home-text p{
+    font-size: 30px;
+}
+
+.home-text h1{
+    font-size: 50px;
+    text-transform: capitalize;
+}
+
+.home-text h2{
+    font-size: 32px;
+    text-transform: capitalize;
+    font-weight: 500;
+    margin:0 0 30px;
+}
+
+.home-text .btn{
+    
+    margin:0 15px 15px 0;
+}
+
+.home-img .img-box{
+    max-width: 360px;
+    background-color: var(--white-alpha-25);
+    border-radius: 50%;
+    border: 8px solid var(--white-alpha-25);
+    margin: auto;
+}
+
+/* we can change our image around here */
+.home-img .img-box img{
+    width: 100%;
+    border-radius: 50%;
+}
+
+/* About Section */
+.about-img{
+    width: 50%;
+    padding: 0 15px;
+}
+
+.about-text{
+    width: 50%;
+    padding: 0 15px;
+}
+
+.about-img .img-box{
+    background-color: var(--white-alpha-25);
+    max-width: 400px;
+    border: 1px solid var(--white-alpha-40);
+    margin: auto;
+    border-radius: 10px;
+}
+
+.about-img .img-box img{
+    width: 100%;
+}
+
+.about-text h3{
+    text-transform: capitalize;
+    font-size: 30px;
+    margin: 30px 0;
+}
+
+.about-text .skills{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.about-text .skill-item{
+    background-color: var(--white-alpha-25);
+    border: 1px solid var(--white-alpha-40);
+    padding: 5px 15px;
+    text-transform: capitalize;
+    margin: 0 10px 10px 0;
+    border-radius: 20px;
+}
+
+.about-tabs{
+    margin-top: 20px;
+}
+
+.about-tabs .tab-item{
+    padding: 2px 0;
+    background-color: transparent;
+    border: none;
+    text-transform: capitalize;
+    display: inline-block;
+    color: var(--blue-dark);
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    margin: 0 35px 0 0;
+    position: relative;
+    opacity: 0.5;
+    transition: all 0.5s ease;
+}
+
+.about-tabs .tab-item:last-child{
+    margin: 0;
+}
+
+.about-tabs .tab-item::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 1px;
+    background-color: var(--blue-dark);
+    transition: width 0.3s ease;
+}
+
+.about-tabs .tab-item:hover::before{
+    width: 100%;
+}
+
+.about-tabs .tab-item.active::before{
+    width: 100%;
+    background-color: var(--main-color);
+}
+
+.about-tabs .tab-item.active{
+    color: var(--main-color);
+    opacity: 1;
+    cursor: auto;
+}
+
+.about-text .timeline{
+    position: relative;
+}
+
+.about-text .timeline::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 5px;
+    width: 1px;
+    background-color: var(--main-color);
+}
+
+/* the education and experience part here  */
+.about-text .tab-content{
+    padding: 40px 0;
+    display: none;
+}
+
+/* we need javascript for education and experience choices */
+.about-text .tab-content.active{
+    display: block;
+}
+
+.about-text .timeline-item{
+    margin-bottom: 30px;
+    position: relative;
+    padding: 10px 0 0 40px;
+}
+
+/* add the dot for each of the time period */
+.about-text .timeline-item::before{
+    content: '';
+    position: absolute;
+    height: 11px;
+    width: 11px;
+    background-color: var(--main-color);
+    left: 0;
+    top: 16px;
+    border-radius: 50%;
+}
+
+.about-text .timeline-item:last-child{
+    margin-bottom: 0;
+
+}
+
+.about-text .timeline-item .date{
+    display: block;
+    color: var(--main-color);
+    font-weight: 520;
+    margin: 0 0 10px;
+    font-size: 15px;
+}
+
+.about-text .timeline-item h4{
+    font-size: 18px;
+    text-transform: capitalize;
+    margin: 0 0 10px;
+    font-family: inherit;
+}
+
+.about-text .timeline-item h4 span{
+    font-weight: 400;
+}
+
+.about-text .btn{
+    margin:0 15px 15px 0;
+}
+
+/* Portfolio Section */
+.portfolio-item{
+    width: calc((100% / 3 ) - 30px);
+    margin: 0 15px 30px;
+}
+
+/* to create the background transparent box for each project */
+.portfolio-section{
+    padding-bottom: 50px;
+}
+
+.portfolio-item-thumbnail{
+    padding: 10px;
+    background-color: var(--white-alpha-25);
+    border:1px solid var(--white-alpha-40);
+    border-radius: 10px;
+}
+
+.portfolio-item-thumbnail img{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.portfolio-item h3{
+    font-size: 20px;
+    text-transform: transparent;
+    margin: 20px 0;
+}
+
+.portfolio-item-details{
+    display: none;
+}
+
+/* Portfolio popup */
+/* The z-index CSS property sets the z-order of a positioned element and its descendants or flex items */
+.portfolio-popup{
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 200;
+
+    visibility: hidden;
+}
+
+.portfolio-popup.open{
+    visibility: visible;
+    overflow-y: auto;
+}
+
+.pp-inner{
+    min-height: 100vh;
+    padding: 40px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pp-content{
+    background-color: var(--white-alpha-25);
+    padding: 30px;
+    border-radius: 30px;
+    max-width: 900px;
+    width: 100%;
+    border:1px solid var(--white-alpha-40);
+    backdrop-filter: var(--backdrop-filter-blur);
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+/* when open the project it will slowly open */
+.portfolio-popup.open .pp-content{
+    opacity: 1;
+    transform: scale(1);
+    transition: all 0.5s ease;
+}
+
+.pp-header{
+    position: relative;
+}
+
+/* make the close button */
+.pp-header .btn{
+    height: 40px;
+    width: 40px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: -40px;
+    top: -40px;
+}
+
+.pp-thumbnail img{
+    border-radius: 10px;
+}
+
+.pp-header h3{
+    font-size: 26px;
+    text-transform: capitalize;
+    margin:20px 0 15px;
+}
+
+.pp-body .description{
+    margin-bottom: 20px;
+}
+
+/* each of the variable will be 20px await horizontally */
+
+/* over here we will highlight the topic */
+.pp-body .general-info li{
+    margin-bottom: 10px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+/* we will make the description not as bold like the topics'name */
+.pp-body .general-info li span{
+    font-weight: 300;
+}
+
+.pp-body .general-info li a{
+    text-transform: lowercase;
+    color: var(--main-color);
+}
+
+/* Contact section */
+.contact-form,
+.contact-info{
+    width: 50%;
+    padding:0 15px;
+}
+
+.contact-form .input-group{
+    width: 100%;
+    margin-bottom: 30px
+}
+
+/* the text inside the input box */
+.contact-form .input-control::placeholder{
+    color: var(--blue-dark);
+    opacity: 0.8;
+    font-weight: 300;
+
+}
+
+/* input box */
+.contact-form .input-control{
+    display: block;
+    width: 100%;
+    height: 50px;
+    border-radius: 25px;
+    border: none;
+    font-family: inherit;
+    font-weight: 400;
+    font-size: 16px;
+    background-color: var(--white-alpha-25);
+    padding: 0 20px;
+    color: var(--blue-dark);
+    border:1px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+/* because text area is different than the other input control so we gotta create a separate one */
+.contact-form textarea.input-control:focus{
+    border-color: var(--white-alpha-40);
+}
+
+/* change the message input to make it bigger */
+.contact-form textarea.input-control{
+    height: 120px;
+    resize: none;
+    padding: 15px;
+}
+
+/* for the social media icon */
+.contact-info-item{
+    margin: 0 0 30px;
+    padding: 0 0 0 20px;
+}
+
+.contact-info-item h3{
+    font-size: 20px;
+    text-transform: capitalize;
+    margin: 0 0 5px;
+}
+
+.contact-info-item .social-links a{
+    display: inline-flex;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    background-color: var(--white-alpha-25);
+    border: 1px solid var(--white-alpha-40);
+    justify-content: center;
+    border-radius: 20px;
+    color: var(--main-color);
+    margin: 6px 40px 0 0;
+    transition: all 0.3s ease;
+}
+
+/* change the color for the social media icon */
+.contact-info-item .social-links a:hover{
+    color: var(--main-color);
+    background-color: #b59f8a;
+}
+
+/* Responsive */
+
+/* when the screen is small, the width of the content still at 100% and the home-text will be moved into the middle */
+@media(max-width:991px){
+    .container{
+        padding: 0;
+    }
+    .home-text,
+    .home-img{
+        width: 100%;
+    }
+    .home-text{
+        text-align: center;
+    }
+    /* The order CSS property sets the order to lay out an item in a flex or grid container. */
+    .home-img{
+        order: -1;
+    }
+    .home-img .img-box{
+        max-width: 300px;
+    }
+    .home-text .btn{
+        margin: 0 7px 15px;
+    }
+    .portfolio-item{
+        width: calc(50% - 30px);
+    }
+}
+
+/* move the conatct form and info here to make it look horizontally straight */
+@media(max-width:767px){
+    .contact-form, 
+    .contact-info,
+    .about-img,
+    .about-text{
+        width: 100%;
+    }
+    .about-text{
+        margin-top: 32px;
+    }
+    .portfolio-item{
+        width: calc(100% - 30px);
+    }
+    /* move the project img to the middle */
+    .pp-innter{
+        padding: 30px 15px;
+    }
+
+    /* contact-info order =1,0 nothing will change. -1 will make it come first and then the fill in */
+    .contact-info{
+        order: -1;
+        margin-bottom: 15px;
+    }
+    .contact-info-item{
+        padding: 0;
+    }
+    
+}
+
+@media(max-width:575px){
+    .section-tile h2,
+    .header .nav-inner ul li a{
+        font-size: 33px;
+    }
+    .home-text h1{
+        font-size: 30px;
+    }
+    .home-text h2{
+        font-size:18.5px;
+    }
+    .pp-inner h3{
+        font-size: 20px;
+    }
+}
