@@ -481,7 +481,7 @@ button{
     width: 45px;
     background-color: #202b2d;
     position: absolute;
-    right: 115px;
+    right: 150px;
     border-radius: 50%;
     cursor: pointer;
     transition: 1s ease all;
@@ -490,7 +490,7 @@ button{
 .toggle-ball.active{
     /* #baa898  */
     background-color: #d3dfe1 ;
-    transform: translateX(-60px);
+    transform: translateX(-66px);
 }
 
 .header{
@@ -1110,6 +1110,10 @@ button{
     .portfolio-item{
         width: calc(50% - 30px);
     }
+    .toggle-ball{
+        margin: 0;
+        margin-right: -36px;
+    }
 }
 
 /* move the conatct form and info here to make it look horizontally straight */
@@ -1139,6 +1143,11 @@ button{
     .contact-info-item{
         padding: 0;
     }
+
+    .toggle-ball{
+        margin: 0;
+        margin-right: -36px;
+    }
     
 }
 
@@ -1156,4 +1165,14 @@ button{
     .pp-inner h3{
         font-size: 20px;
     }
+}
+
+@media(max-width:283px){
+    .toggle{
+        margin: 0;
+    }
+    .toggle-ball{
+        margin-right: -72px;
+    }
+
 }
