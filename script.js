@@ -10,6 +10,17 @@ window.addEventListener("load", ()=>{
     },1000);
 });
 
+//toggle-ball
+const ball = document.querySelector(".toggle-ball");
+const items = document.querySelectorAll(":root,toggle");
+ball.addEventListener("click", () => {
+    items.forEach((item) => {
+        item.classList.toggle("active");
+    });
+    // apply for the ball too
+    ball.classList.toggle("active");
+    });
+
 // Toggle navbar
 const navToggler = document.querySelector(".nav-toggler");
 navToggler.addEventListener("click", ()=>{
